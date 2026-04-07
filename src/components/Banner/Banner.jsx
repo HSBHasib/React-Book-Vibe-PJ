@@ -1,4 +1,3 @@
-import React from 'react'
 import bannerImg from '../../assets/img/bannerImg.png'
 
 const Banner = () => {
@@ -21,3 +20,4 @@ const Banner = () => {
 }
 
 export default Banner
+
