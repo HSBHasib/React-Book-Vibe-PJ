@@ -1,25 +1,10 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-
-import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import MainLayout from './layout/MainLayout.jsx';
-import HomePage from './components/HomePage/HomePage.jsx';
-import ErrorPage from './page/ErrorPage/ErrorPage.jsx';
+import { router } from './routes/Routes.jsx';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    Component: MainLayout,
-    children: [
-      {index: true, Component: HomePage}
-      // {path: '/', Component: }
-    ]
-    
-  },
-  {path:'*', Component: ErrorPage}
-]);
+
+
 
 
 createRoot(document.getElementById('root')).render(
