@@ -2,6 +2,7 @@ import { div } from 'framer-motion/client';
 import { BiMemoryCard } from 'react-icons/bi';
 import { GoPeople } from 'react-icons/go';
 import { SlLocationPin } from 'react-icons/sl';
+import { Link } from 'react-router';
 const ListedCards = ({book}) => {
   return (
     <div>
@@ -59,9 +60,11 @@ const ListedCards = ({book}) => {
                 <span className="bg-[#FFAC3326] text-[15px] text-[#FFAC33] px-6 py-2.5 rounded-full ">
                 Rating: {book.rating}
                 </span>
-                <button className="bg-[#23BE0A] text-[15px] text-white px-7 py-2.5 rounded-full font-semibold hover:bg-[#1a8d07] transition-all active:scale-95 ml-auto">
-                View Details
-                </button>
+                <Link to={`/bookDetails/${book.bookId}`}>
+                    <button className="bg-[#23BE0A] text-[15px] text-white px-7 py-2.5 rounded-full font-semibold hover:bg-[#1a8d07] transition-all active:scale-95 ml-auto">
+                    View Details
+                    </button>
+                </Link>
             </div>
             </div>
         </div>

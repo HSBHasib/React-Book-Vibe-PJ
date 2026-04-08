@@ -47,7 +47,7 @@ const BookDetails = () => {
           <h1 className="text-3xl font-bold text-gray-800 mb-2 font-serif">
             {bookName}
             </h1>
-            <FaDeleteLeft onClick={() => navigate('/')} className='absolute right-4 top-4 cursor-pointer active:scale-95' size={28}/>
+            <FaDeleteLeft onClick={() => navigate(-1)} className='absolute right-4 top-4 cursor-pointer active:scale-95' size={28}/>
             
           </div>
           <p className="text-gray-600 font-medium mb-4 italic">
