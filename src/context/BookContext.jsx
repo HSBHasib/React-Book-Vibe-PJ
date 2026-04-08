@@ -8,8 +8,6 @@ const BookProvider = ({children}) => {
   const [readList, setReadList] = useState([]);
 
   const handleMarkAsRead = (currentBook) => {
-    console.log("currentBook", currentBook);
-
     const allReadyExists = readList.find(books => books.bookId === currentBook.bookId);
 
     if(allReadyExists) {
@@ -24,8 +22,6 @@ const BookProvider = ({children}) => {
   const [wishList, setWishList] = useState([]);
 
   const handleMarkAsWish = (currentBook) => {
-    console.log("currentBook", currentBook);
-
     const isExistInWishList = readList.find( books => books.bookId  === currentBook.bookId);
     if(isExistInWishList) {
       toast.error(`${currentBook.bookName} book already exits in readList`);
