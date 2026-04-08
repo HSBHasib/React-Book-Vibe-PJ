@@ -30,7 +30,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-5 border-b-2 border-orange-500 w-fit">Explore</h3>
           <ul className="flex flex-col gap-3 text-sm">
             <li><NavLink to="/" className={navLinkStyles}>Home</NavLink></li>
-            <li><NavLink to="/all-books" className={navLinkStyles}>Listed Books</NavLink></li>
+            <li><NavLink to="/listedBooks" className={navLinkStyles}>Listed Books</NavLink></li>
             <li><NavLink to="/best-sellers" className={navLinkStyles}>Page to Read</NavLink></li>
           </ul>
         </div>
