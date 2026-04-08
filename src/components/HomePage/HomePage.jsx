@@ -1,4 +1,5 @@
 import Banner from '../Banner/Banner'
+import Footer from '../Footer/Footer'
 import AllBooks from './AllBooks'
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
     <div>
       <Banner />
       <AllBooks />
+      <Footer />
     </div>
   )
 }

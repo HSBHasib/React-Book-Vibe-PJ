@@ -1,4 +1,3 @@
-import React from 'react'
 import { IoIosStarOutline } from 'react-icons/io';
 import { useLoaderData } from 'react-router'
 
@@ -14,7 +13,7 @@ const AllBooks = () => {
         {
           data.map(book => {
             return <div className="max-w-sm bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-            <div className="bg-[#F3F3F3] rounded-2xl p-8 mb-6 flex justify-center items-center h-64">
+            <div className="bg-[#F3F3F3] rounded-2xl p-8 mb-6 flex justify-center items-center h-62">
               <img 
                 src={book.image} 
                 alt={book.bookName} 
