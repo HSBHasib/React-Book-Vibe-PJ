@@ -31,7 +31,7 @@ const Navber = () => {
                     <li><NavLink to='/' className={({isActive}) => `${
                         isActive ? 'text-green-500 border border-green-500 rounded-md ' : ''
                     }`}>Home</NavLink></li>
-                    <li><NavLink to='/page' className={({isActive}) => `${
+                    <li><NavLink to='/listedBooks' className={({isActive}) => `${
                         isActive ? 'text-green-500 border border-green-500 rounded-md ' : ''
                     }`}>Listed Books</NavLink></li>
                     <li><NavLink to='/page2' className={({isActive}) => `${

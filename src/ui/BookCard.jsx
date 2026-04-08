@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const BookCard = ({book}) => {
   return (
     <Link to={`/bookDetails/${book.bookId}`}>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+      <div className="max-w-sm h-[510px] bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
             <div className="bg-[#F3F3F3] rounded-2xl p-8 mb-6 flex justify-center items-center h-62">
               <img 
                 src={book.image} 
