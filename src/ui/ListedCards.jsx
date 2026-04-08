@@ -70,3 +70,4 @@ const ListedCards = ({book}) => {
 }
 
 export default ListedCards
+

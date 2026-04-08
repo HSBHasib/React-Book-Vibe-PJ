@@ -1,11 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BookContext } from '../../context/BookContext';
 import ListedCards from '../../ui/ListedCards';
 
-const ListedWishList = () => {
+const ListedWishList = ({sorting}) => {
   const {wishList} = useContext(BookContext);
+  const [filteredReadList, setFilteredReadList] = useState(wishList);
+  
+      useEffect(() => {
+          if(sorting) {
+              if(sorting === 'pages') {
+                  const sortedData = [...wishList].sort((a,b) => a.totalPages - b.totalPages);
+                  setFilteredReadList(sortedData);
+              } else if (sorting === 'rating') {
+                  const sortedData = [...wishList].sort((a,b) => a.rating - b.rating);
+                  setFilteredReadList(sortedData);
+              }
+          }
+      }, [sorting, wishList]);
 
-  if(wishList.length === 0) {
+  if(filteredReadList.length === 0) {
         return <div className="flex flex-col items-center justify-center p-20 text-center">
         <div className="text-6xl mb-4 opacity-40">
             📂
@@ -21,7 +34,7 @@ const ListedWishList = () => {
     return (
       <div className='space-y-6 mb-10'>
           {
-              wishList.map((book, idx) => <ListedCards key={idx} book={book}/>)
+              filteredReadList.map((book, idx) => <ListedCards key={idx} book={book}/>)
           }
       </div>
       

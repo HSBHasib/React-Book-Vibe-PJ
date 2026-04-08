@@ -1,11 +1,27 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useEffectEvent, useState } from 'react'
 import { BookContext } from '../../context/BookContext';
 import ListedCards from '../../ui/ListedCards';
 
 
-const ListedReadList = () => {
+const ListedReadList = ({sorting}) => {
+
     const {readList} = useContext(BookContext);
-    if(readList.length === 0) {
+    const [filteredReadList, setFilteredReadList] = useState(readList);
+
+    useEffect(() => {
+        if(sorting) {
+            if(sorting === 'pages') {
+                const sortedData = [...readList].sort((a,b) => a.totalPages - b.totalPages);
+                setFilteredReadList(sortedData);
+            } else if (sorting === 'rating') {
+                const sortedData = [...readList].sort((a,b) => a.rating - b.rating);
+                setFilteredReadList(sortedData);
+            }
+        }
+    }, [sorting, readList]);
+
+
+    if(filteredReadList.length === 0) {
         return <div className="flex flex-col items-center justify-center p-20 text-center">
         <div className="text-6xl mb-4 opacity-40">
             📂
@@ -18,10 +34,11 @@ const ListedReadList = () => {
             </p>
         </div>
     }
+
   return (
     <div className='space-y-6 mb-10'>
         {
-            readList.map((book, idx) => <ListedCards key={idx} book={book}/>)
+            filteredReadList.map((book, idx) => <ListedCards key={idx} book={book}/>)
         }
     </div>
     
