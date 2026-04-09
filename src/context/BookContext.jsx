@@ -1,14 +1,16 @@
 import React, { createContext, useState } from 'react'
 import { toast } from 'react-toastify';
+import { addReadListToLocalDB, addWishListToLocalDB, getAllReadListFromLocalDB, getAllWishistFromLocalDB } from '../utils/localDB';
 
 export const BookContext = createContext();
 
 const BookProvider = ({children}) => {
 
-  const [readList, setReadList] = useState([]);
-
+  // ReadList
+  const [readList, setReadList] = useState(() => getAllReadListFromLocalDB());
   const handleMarkAsRead = (currentBook) => {
     const allReadyExists = readList.find(books => books.bookId === currentBook.bookId);
+    addReadListToLocalDB(currentBook);
 
     if(allReadyExists) {
       toast.error(`${currentBook.bookName} book already exits in readList`);
@@ -19,10 +21,12 @@ const BookProvider = ({children}) => {
     }
   }
 
-  const [wishList, setWishList] = useState([]);
-
+  // WishList
+  const [wishList, setWishList] = useState(() => getAllWishistFromLocalDB());
   const handleMarkAsWish = (currentBook) => {
     const isExistInWishList = readList.find( books => books.bookId  === currentBook.bookId);
+    addWishListToLocalDB(currentBook);
+
     if(isExistInWishList) {
       toast.error(`${currentBook.bookName} book already exits in readList`);
       return;
